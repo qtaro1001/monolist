@@ -37,13 +37,10 @@ class OwnershipsController < ApplicationController
   
   def destroy
     @item = Item.find(params[:item_id])
-    return redirect_to root_url if @item.nil?
       if params[:type] == "Have"
         current_user.unhave(@item)
       elsif params[:type] == "Want"
         current_user.unwant(@item)
       end
-    flash[:success] = "Item deleted"
-    redirect_to request.referrer || root_url
   end
 end
