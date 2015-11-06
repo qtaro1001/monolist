@@ -8,7 +8,12 @@
     <div class="item-single-main">
       <div class="image">
         <div class="img-wrap">
-          <%= image_tag(@item.large_image, alt: @item.title) %>
+              <% if @item.large_image.present? %>  
+              <%= image_tag(@item.large_image, :alt => @item.title) %>
+            <% else %>
+              <%= image_tag('no-image.png', :alt => @item.title) %>
+            <% end %>
+          <%#= image_tag(@item.large_image, alt: @item.title) %>
         </div>
       </div>
       <div class="title">
@@ -42,7 +47,7 @@
         </div>
       </div>
       <div class="text-center">
-        <%= link_to(image_tag("amazon-button.png", alt: "Amazon詳細ページへ"), "http://www.amazon.co.jp/dp/#{@item.asin}/") %>
+        <%= link_to(image_tag("amazon-button.png", alt: "Amazon詳細ページへ"), @item.detail_page_url) %>
       </div>
     </div>
   </div>
