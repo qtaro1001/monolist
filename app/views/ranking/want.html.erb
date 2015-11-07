@@ -1,2 +1,17 @@
-<h1>Ranking#want</h1>
-<p>Find me in app/views/ranking/want.html.erb</p>
+<div class="container">
+  <div class="container-inner inner-sm clearfix">
+    <h1>Want Ranking</h1>
+    <table class="table table-striped">
+      <tr>
+        <th class="text-center">アイテム</th>
+        <th class="text-center">件数</th>
+      </tr>
+      <% @wants.each do |item| %>
+        <tr>
+          <td><%= Item.find_by(id: item[0]).title %></td>
+          <td class="text-center" width="50"><%= item[1] %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
