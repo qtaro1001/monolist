@@ -3,10 +3,12 @@
     <h1>Have Ranking</h1>
     <table class="table table-striped">
       <tr>
+        <th class="text-center">順位</th>
         <th class="text-center">持っている人の多い順：上位10アイテム</th>
       </tr>
-      <% @items.each do |item| %>
+      <% @items.each_with_index do | item , i | %>
         <tr>
+          <td class="text-center" width="50"><%= "#{i+1}" %></td>
           <td><%= item.title %></td>
         </tr>
       <% end %>
