@@ -3,13 +3,11 @@
     <h1>Have Ranking</h1>
     <table class="table table-striped">
       <tr>
-        <th class="text-center">アイテム</th>
-        <th class="text-center">件数</th>
+        <th class="text-center">持っている人の多い順：上位10アイテム</th>
       </tr>
-      <% @haves.each do |item| %>
+      <% @items.each do |item| %>
         <tr>
-          <td><%= Item.find_by(id: item[0]).title %></td>
-          <td class="text-center" width="50"><%= item[1] %></td>
+          <td><%= item.title %></td>
         </tr>
       <% end %>
     </table>
